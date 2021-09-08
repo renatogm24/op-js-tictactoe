@@ -15,25 +15,46 @@ body {
 
 .tictactoe {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 50vw;
+    grid-template-columns: 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px;
     justify-content: center;
     background-color: black;
 }
 
-@media (min-width: 650px) {
-    .tictactoe {
-        width: 30vw;
-    }
-}
-
-
-
 #title {
     color: white;
     font-size: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+#player {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 30px 0px;
+    width: 200px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.playerChose {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 20px;
+    width: 80px;    
+    height: 60px;
+}
+
+.playerChose:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.playerChose p {
+    margin: 0px;
 }
 
 .sq {
@@ -107,10 +128,10 @@ body {
     .levelBtn {
         font-size: 15px;
     }
-    
 }
 
 .result {
+    display: flex;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 25px;
     background-color: white;
@@ -118,7 +139,6 @@ body {
     border-radius: 0px;
     margin-top: 50px;
     width: 100vh;
-    display: flex;
     padding: 5px 0px 5px 0px;
     justify-content: center;
 }
