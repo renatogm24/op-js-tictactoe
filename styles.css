@@ -20,6 +20,8 @@ body {
     width: 50vw;
     justify-content: center;
     background-color: white;
+    padding: 1em 0 1em 0;
+    margin-bottom: 0;
 }
 
 @media (min-width: 650px) {
@@ -44,6 +46,8 @@ body {
     border: none;
     border-bottom: 3px solid white;
     border-right: 3px solid white;
+    outline: none;
+    border-radius: 0px;
 }
 
 .sq p {
