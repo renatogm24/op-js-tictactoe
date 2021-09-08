@@ -1,0 +1,124 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Gloria Hallelujah', cursive;
+    background-color: black;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    align-items: center;
+    height: 100vh;
+}
+
+.tictactoe {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 50vw;
+    justify-content: center;
+    background-color: white;
+}
+
+@media (min-width: 650px) {
+    .tictactoe {
+        width: 30vw;
+    }
+}
+
+
+
+#title {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.sq {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+}
+
+.sq p {
+    margin: 0px;
+}
+
+.sq.no-r {
+    border-right: none;
+}
+
+.sq.no-b {
+    border-bottom: none;
+}
+
+.sq:hover {
+    cursor: pointer;
+}
+
+.start {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 40px;
+    margin-top: 30px;
+}
+
+.start:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.level {
+    margin-top: 40px;
+}
+
+.levelBtn {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 40px;
+    width: 100px;
+}
+
+.levelBtn:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .start {
+        font-size: 15px;
+    }
+    .levelBtn {
+        font-size: 15px;
+    }
+    
+}
+
+.result {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 25px;
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+    margin-top: 50px;
+    width: 100vh;
+    display: flex;
+    padding: 5px 0px 5px 0px;
+    justify-content: center;
+}
