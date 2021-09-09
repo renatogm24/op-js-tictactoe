@@ -30,9 +30,9 @@ const gameBoard = (() => {
 
     const endGame = () => {
         for (let index = 0; index < gameBoardArr.length; index++) {
-            if(gameBoardArr[index] == ""){
+            if (gameBoardArr[index] == "") {
                 gameBoardArr[index] = "-";
-            }           
+            }
         }
     };
 
@@ -186,8 +186,85 @@ const gameFlow = (() => {
             let indexChose = Math.floor(Math.random() * spacesAvailable.length);
             return String(spacesAvailable[indexChose]);
         } else {
-            return "0";
-        } 
+            let test = minimax(gameBoard.getBoardArr(),enemy.getChose());            
+            return String(test.index);
+        }
+    };
+
+    function minimax(newBoard, player) { //newBoard es un arreglo
+        let spacesAvailable = [];
+        for (let index = 0; index < newBoard.length; index++) {
+            if (newBoard[index] == "") {
+                spacesAvailable.push(index);
+            }
+        }
+
+        if (winning(newBoard, user.getChose())) {
+            return { score: -10 };
+        }
+        else if (winning(newBoard, enemy.getChose())) {
+            return { score: 10 };
+        }
+        else if (spacesAvailable.length === 0) {
+            return { score: 0 };
+        }
+
+        let moves = [];
+
+        // loop through available spots
+        for (let i = 0; i < spacesAvailable.length; i++) {
+            //create an object for each and store the index of that spot 
+            let move = {};
+            move.index = spacesAvailable[i];
+            let before = newBoard[spacesAvailable[i]]
+
+            // set the empty spot to the current player
+            newBoard[spacesAvailable[i]] = player;
+
+            /*collect the score resulted from calling minimax 
+              on the opponent of the current player*/
+            if (player == enemy.getChose()) {
+                let result = minimax(newBoard, user.getChose());
+                move.score = result.score;
+            }
+            else {
+                let result = minimax(newBoard, enemy.getChose());
+                move.score = result.score;
+            }
+
+            // reset the spot to empty
+            newBoard[spacesAvailable[i]] = before;
+
+            // push the object to the array
+            moves.push(move);
+        }
+
+        var bestMove;
+        if (player === enemy.getChose()) {
+            var bestScore = -10000;
+            for (var i = 0; i < moves.length; i++) {
+                if (moves[i].score > bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        } else {
+
+            // else loop over the moves and choose the move with the lowest score
+            var bestScore = 10000;
+            for (var i = 0; i < moves.length; i++) {
+                if (moves[i].score < bestScore) {
+                    bestScore = moves[i].score;
+                    bestMove = i;
+                }
+            }
+        }
+
+        // return the chosen move (object) from the moves array
+        
+        
+        return moves[bestMove];
+
     };
 
     const selectPlayer = (event) => {
@@ -245,6 +322,23 @@ const gameFlow = (() => {
             return false;
         }
     };
+
+    function winning(board, player) {
+        if (
+            (board[0] == player && board[1] == player && board[2] == player) ||
+            (board[3] == player && board[4] == player && board[5] == player) ||
+            (board[6] == player && board[7] == player && board[8] == player) ||
+            (board[0] == player && board[3] == player && board[6] == player) ||
+            (board[1] == player && board[4] == player && board[7] == player) ||
+            (board[2] == player && board[5] == player && board[8] == player) ||
+            (board[0] == player && board[4] == player && board[8] == player) ||
+            (board[2] == player && board[4] == player && board[6] == player)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     return { init, checkWinner, user, enemy }
