@@ -131,7 +131,7 @@ body {
 }
 
 .result {
-    display: flex;
+    display: none;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 25px;
     background-color: white;

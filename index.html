@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-    <script src="ticTacToe.js"></script>
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -17,50 +17,47 @@
     <div class="content">
         <div id="title">Tic Tac Toe</div>
         <div id="player">
-            <button class="playerChose">
+            <button id="playerX" class="playerChose">
                 <p>X</p>
             </button>
-            <button class="playerChose">
+            <button id="playerO" class="playerChose">
                 <p>O</p>
             </button>
         </div>
         <div class="tictactoe">
-            <button class="sq">
+            <button id="0" class="sq">
                 <p></p>
             </button>
-            <button class="sq">
+            <button id="1" class="sq">
                 <p></p>
             </button>
-            <button class="sq no-r">
+            <button id="2" class="sq no-r">
                 <p></p>
             </button>
-            <button class="sq">
+            <button  id="3" class="sq">
                 <p></p>
             </button>
-            <button class="sq">
+            <button id="4" class="sq">
                 <p></p>
             </button>
-            <button class="sq no-r ">
+            <button id="5" class="sq no-r ">
                 <p></p>
             </button>
-            <button class="sq no-b">
+            <button id="6" class="sq no-b">
                 <p></p>
             </button>
-            <button class="sq no-b">
+            <button id="7" class="sq no-b">
                 <p></p>
             </button>
-            <button class="sq no-r no-b">
+            <button id="8" class="sq no-r no-b">
                 <p></p>
             </button>
         </div>
         <div class="level">
-            <button class="levelBtn">
+            <button id="easy" class="levelBtn">
                 <p>Easy</p>
             </button>
-            <button class="levelBtn">
-                <p>Medium</p>
-            </button>
-            <button class="levelBtn">
+            <button id="hard" class="levelBtn">
                 <p>Hard</p>
             </button>
         </div>
@@ -69,9 +66,11 @@
                 <p>Start/Restart</p>
             </button>
         </div>
-        <div class="result">YOU WIN!</div>
+        <div class="result"></div>
 
     </div>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="ticTacToe.js"></script>
 </body>
 
 </html>
